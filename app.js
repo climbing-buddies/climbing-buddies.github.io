@@ -1,12 +1,20 @@
 var r = 0, g = 0, b = 0;
 
 function getNewColor(oldColor){
-    return (oldColor + Math.round(Math.random()) * 20) % 256;
+    let sign = Math.round(Math.random()) == 0 ? -1 : 1;
+    let newColor = (oldColor + sign * 20) % 256;
+    if (newColor < 0) {
+        newColor = 256 - newColor;
+    }
+    return newColor;
 }
 
 function iterateColor(oldColor, newColor){
-    let step = oldColor > newColor ? -1 : 1;
-    return oldColor + step;
+    if (oldColor == newColor){
+        return oldColor;
+    } else {
+        return oldColor > newColor ? --oldColor : ++oldColor;
+    }
 }
 
 function changeBackground () {
@@ -25,12 +33,13 @@ function changeBackground () {
             } else {
                 document.getElementById("game").style.color = "black";
             }
+            console.log(r + ', ' + g + ', ' + b);
         } else {
             clearInterval(timer);
         }
-    }, 30   );
+    }, 100);
 }
 
 window.onload = function(){
-    setInterval(changeBackground, 500);
+    setInterval(changeBackground, 2000);
 }
