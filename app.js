@@ -33,7 +33,6 @@ function changeBackground () {
             } else {
                 document.getElementById("game").style.color = "black";
             }
-            console.log(r + ', ' + g + ', ' + b);
         } else {
             clearInterval(timer);
         }
