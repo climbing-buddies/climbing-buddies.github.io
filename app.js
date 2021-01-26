@@ -1,4 +1,4 @@
-var r = 0, g = 0, b = 0;
+var r = 3, g = 252, b = 127;
 
 function getNewColor(oldColor){
     let sign = Math.round(Math.random()) == 0 ? -1 : 1;
