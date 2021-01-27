@@ -28,11 +28,7 @@ function changeBackground () {
             g = iterateColor(g, new_g);
             b = iterateColor(b, new_b);
             document.body.style.backgroundColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
-            if ((r + b + g) / 3 < 128){
-                document.getElementById("game").style.color = "white";
-            } else {
-                document.getElementById("game").style.color = "black";
-            }
+            document.getElementById("game").style.color = ((r + b + g) / 3 < 128) ? "white" : "black";
         } else {
             clearInterval(timer);
         }
